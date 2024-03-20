@@ -9,6 +9,24 @@ public class Member {
         this.memberName = memberName;
     }
 
+    @Override
+    public int hashCode() {
+        return memberId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Member) {
+            Member member = (Member) obj;
+            if (this.memberId == member.memberId) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
     public int getMemberId() {
         return memberId;
     }

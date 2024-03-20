@@ -5,10 +5,9 @@ import collection.Member;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class MemberArrayList {
+public class MemberIterator {
     private ArrayList<Member> arrayList;
-
-    public MemberArrayList() {
+    public MemberIterator () {
         arrayList = new ArrayList<Member>();
     }
 
@@ -18,12 +17,13 @@ public class MemberArrayList {
 
     public boolean removeMember(int memberId) {
 
+        Iterator<Member>ir = arrayList.iterator();
 
-        for (int i = 0; i < arrayList.size(); i++) {
-            Member member = arrayList.get(i);
+        while (ir.hasNext()) {
+            Member member = ir.next();
             int tempId = member.getMemberId();
             if(tempId == memberId) {
-                arrayList.remove(i);
+                arrayList.remove(member);
                 return true;
             }
         }
